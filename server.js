@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -8,6 +9,8 @@ const routes = require("./routes/routes");
 
 /* Middleware */
 app.use(express.static("./public"));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Set template engine */
 app.set('view engine', 'ejs');
