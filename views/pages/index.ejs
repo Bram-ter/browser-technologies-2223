@@ -1,3 +1,55 @@
 <%- include ("../partials/head.ejs") %>
-<%- include ("../partials/form.ejs") %>
+<form method="POST">
+    <fieldset>
+        <legend>Studentgegevens</legend>
+        <label for="naam">
+            Naam:
+            <input type="text" id="naam" name="naam" required>
+        </label>
+
+        <label for="studentnummer">
+            Nummer:
+            <input type="text" id="studentnummer" name="studentnummer" required>
+        </label>
+
+        <label for="email">
+            Email:
+            <input type="email" id="email" name="email" required>
+        </label>
+    </fieldset>
+
+    <% courses.forEach(function(course) { %>
+    <fieldset>
+        <legend><%= course.courseName %></legend>
+
+        <label for="docent">
+            Docent(en):
+            <input type="text" id="docent" name="docent" value="<%= course.teacherName %>" required>
+        </label>
+
+        <label for="weken">
+            Weken:
+            <input type="text" id="weken" name="weken" value="<%= course.courseWeeks %>" required><br>
+        </label>
+    
+        <label for="lesstof">
+            Hoe moeilijk is het?
+            <input type="number" id="lesstof" name="lesstof" value="10" min="1" max="10" required>
+        </label>
+
+        <label for="uitleg">
+            Hoe duidelijk is het uitgelegd?
+            <input type="number" id="uitleg" name="uitleg" value="10" min="1" max="10" required>
+        </label>
+
+        <label for="inzicht">
+            Hoe goed snap je het?
+            <input type="number" id="inzicht" name="inzicht" value="10" min="1" max="10" required>
+        </label>
+      </fieldset>
+    <% }); %>
+    <input type="submit" value="Submit">
+</form>
+<button id="back" type="button">Back</button>
+<button id="next" type="button">Next</button>
 <%- include ("../partials/footer.ejs") %>

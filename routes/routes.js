@@ -6,6 +6,6 @@ const controller = require('../controller/controller');
 // Get home from the controller and asign it to the '/'
 router.get('/', controller.home);   
 
-router.post('/submit-form', controller.formOutput);
+router.post('/', controller.formOutput);
 
 module.exports = router;
