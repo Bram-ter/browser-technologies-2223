@@ -39,12 +39,18 @@ const home = (req, res) => {
 };
 
 const formOutput = (req, res) => {
+  const { name, studentnumber, email, ...rest } = req.body;
 
-const studentName = req.body.naam;
-const studentNumber = req.body.studentnummer;
-const studentEmail = req.body.email;
+  const test = rest.teachers.map((teacherName, index) => ({
+    courseName: rest.vak[index],
+    teacherName,
+    courseWeeks: rest.weeks[index],
+    teachingMaterial: rest.teaching_material[index],
+    explanation: rest.explanation[index],
+    understanding: rest.understanding[index]
+  }));
 
-res.render('pages/form-output', { studentName, studentNumber, studentEmail });
+  res.render('pages/form-output', { name, studentnumber, email, test });
 };
 
 module.exports = {

@@ -3,8 +3,22 @@
     <%- include ("../partials/head.ejs") %>
 <body>
   <h1>Form submitted successfully!</h1>
-  <p>Name: <%= studentName %></p>
-  <p>Student number: <%= studentNumber %></p>
-  <p>Email: <%= studentEmail %></p>
+  <ul>
+    <li>Naam: <%= name %></li>
+    <li>Student nummer: <%= studentnumber %></li>
+    <li>Email: <%= email %></li>
+  </ul>
+
+  <% test.forEach(function(course) { %>
+    <h2><%= course.courseName %></h2>
+    <ul>
+      <li>Docenten: <%= course.teacherName %></li>
+      <li>Weken: <%= course.courseWeeks %></li>
+      <li>Moeilijkheid: <%= course.teachingMaterial %></li>
+      <li>Duidelijkheid: <%= course.explanation %></li>
+      <li>Begrip: <%= course.understanding %></li>
+    </ul>
+  <% }); %>
+
 </body>
 </html>
