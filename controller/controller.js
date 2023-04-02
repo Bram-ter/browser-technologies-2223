@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 const home = (req, res) => {
 
   const courses = [
@@ -41,7 +39,7 @@ const home = (req, res) => {
 const formOutput = (req, res) => {
   const { name, studentnumber, email, ...rest } = req.body;
 
-  const test = rest.teachers.map((teacherName, index) => ({
+  const courseDetails = rest.teachers.map((teacherName, index) => ({
     courseName: rest.vak[index],
     teacherName,
     courseWeeks: rest.weeks[index],
@@ -50,7 +48,7 @@ const formOutput = (req, res) => {
     understanding: rest.understanding[index]
   }));
 
-  res.render('pages/form-output', { name, studentnumber, email, test });
+  res.render('pages/form-output', { name, studentnumber, email, courseDetails });
 };
 
 module.exports = {

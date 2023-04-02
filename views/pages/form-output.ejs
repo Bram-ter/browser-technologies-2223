@@ -2,6 +2,8 @@
 <html>
     <%- include ("../partials/head.ejs") %>
 <body>
+  <article>
+    <a href="/">Terug naar de vragenlijst</a>
   <h1>Form submitted successfully!</h1>
   <ul>
     <li>Naam: <%= name %></li>
@@ -9,16 +11,16 @@
     <li>Email: <%= email %></li>
   </ul>
 
-  <% test.forEach(function(course) { %>
-    <h2><%= course.courseName %></h2>
+  <% courseDetails.forEach(function(item) { %>
+    <h2><%= item.courseName %></h2>
     <ul>
-      <li>Docenten: <%= course.teacherName %></li>
-      <li>Weken: <%= course.courseWeeks %></li>
-      <li>Moeilijkheid: <%= course.teachingMaterial %></li>
-      <li>Duidelijkheid: <%= course.explanation %></li>
-      <li>Begrip: <%= course.understanding %></li>
+      <li>Docenten: <%= item.teacherName %></li>
+      <li>Weken: <%= item.courseWeeks %></li>
+      <li>Moeilijkheid: <%= item.teachingMaterial %></li>
+      <li>Duidelijkheid: <%= item.explanation %></li>
+      <li>Begrip: <%= item.understanding %></li>
     </ul>
   <% }); %>
-
+  </article>
 </body>
 </html>

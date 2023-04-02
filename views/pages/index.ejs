@@ -1,59 +1,61 @@
 <%- include ("../partials/head.ejs") %>
-<form method="POST" action="/">
-    <fieldset>
-        <legend>Studentgegevens</legend>
-        <label for="name">
-            Naam:
-            <input type="text" id="name" name="name" required>
-        </label>
+<section>
+    <form method="POST" action="/">
+        <fieldset>
+            <legend>Studentgegevens</legend>
+            <label for="name">
+                Volledige naam:
+                <input type="text" id="name" name="name" placeholder=" naam" pattern="[a-zA-Z]+" required>
+                <span>De naam mag geen speciale tekens bevatten</span>
+            </label>
 
-        <label for="studentnumber">
-            Nummer:
-            <input type="text" inputmode="numeric" id="studentnumber" name="studentnumber" required>
-        </label>
+            <label for="studentnumber">
+                Nummer:
+                <input type="text" inputmode="numeric" id="studentnumber" name="studentnumber" placeholder=" 500123456" pattern="^500\d{6,7}$" required>
+                <span>Het nummer moet starten met 500 en moet precies 7 cijfers bevatten</span>
+            </label>
 
-        <label for="email">
-            Email:
-            <input type="email" id="email" name="email" required>
-        </label>
-    </fieldset>
+            <label for="email">
+                Email:
+                <input type="email" id="email" name="email" placeholder=" student@hva.nl" required>
+            </label>
+        </fieldset>
 
-    <% courses.forEach(function(course) { %>
-    <fieldset>
-        <legend><%= course.courseName %></legend>
+        <% courses.forEach(function(course) { %>
+        <fieldset>
+            <legend><%= course.courseName %></legend>
 
-        <label for="vak" hidden>Naam:
-            <input type="text" id="course_<%= course.courseName %>" name="vak" value="<%= course.courseName %>" readonly hidden required>
-        </label>
+            <label for="vak" hidden>Naam:
+                <input type="text" id="course_<%= course.courseName %>" name="vak" value="<%= course.courseName %>" hidden>
+            </label>
 
-        <label for="teachers">
-            Docent(en):
-            <input type="text" id="teachers_<%= course.teacherName %>" name="teachers" value="<%= course.teacherName %>" required>
-        </label>
+            <label for="teachers">
+                Docent(en):
+                <input type="text" id="teachers_<%= course.teacherName %>" name="teachers" value="<%= course.teacherName %>" required>
+            </label>
 
-        <label for="weeks">
-            Weken:
-            <input type="text" id="weeks_<%= course.courseWeeks %>" name="weeks" value="<%= course.courseWeeks %>" required><br>
-        </label>
-    
-        <label for="teaching_material">
-            Hoe moeilijk is de lesstof?
-            <input type="number" id="teaching_material" name="teaching_material" value="10" min="1" max="10" required>
-        </label>
+            <label for="weeks">
+                Weken:
+                <input type="text" id="weeks_<%= course.courseWeeks %>" name="weeks" value="<%= course.courseWeeks %>" required><br>
+            </label>
+        
+            <label for="teaching_material">
+                Hoe moeilijk is de lesstof?
+                <input type="number" id="teaching_material" name="teaching_material" value="10" min="1" max="10" required>
+            </label>
 
-        <label for="explanation">
-            Hoe duidelijk is het uitgelegd?
-            <input type="number" id="explanation" name="explanation" value="10" min="1" max="10" required>
-        </label>
+            <label for="explanation">
+                Hoe duidelijk is het uitgelegd?
+                <input type="number" id="explanation" name="explanation" value="10" min="1" max="10" required>
+            </label>
 
-        <label for="understanding">
-            Hoe goed snap je het?
-            <input type="number" id="understanding" name="understanding" value="10" min="1" max="10" required>
-        </label>
-      </fieldset>
-    <% }); %>
-    <button id="back" type="button">Back</button>
-    <input type="submit" value="Submit">
-    <button id="next" type="button">Next</button>
-</form>
+            <label for="understanding">
+                Hoe goed snap je het?
+                <input type="number" id="understanding" name="understanding" value="10" min="1" max="10" required>
+            </label>
+        </fieldset>
+        <% }); %>
+        <input type="submit" value="Submit">
+    </form>
+</section>
 <%- include ("../partials/footer.ejs") %>
