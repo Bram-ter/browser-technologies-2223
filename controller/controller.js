@@ -39,7 +39,7 @@ const home = (req, res) => {
 const formOutput = (req, res) => {
   const { name, studentnumber, email, ...rest } = req.body;
 
-  console.log(rest);
+  // console.log(rest);
 
   const courseDetails = rest.teachers.map((teacherName, index) => ({
     courseName: rest.vak[index],
@@ -49,6 +49,8 @@ const formOutput = (req, res) => {
     explanation: rest[`explanation_${index}`]?.toString() || '',
     understanding: rest[`understanding_${index}`]?.toString() || ''
   }));
+
+  console.log(courseDetails);
 
   res.render('pages/form-output', { name, studentnumber, email, courseDetails });
 };

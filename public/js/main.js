@@ -30,6 +30,18 @@ fieldsets.forEach((fieldset, index) => {
 const firstLi = document.querySelector('ol li:first-child');
 firstLi.classList.add('active');
 
+// Update the form progress by adding an "active" class to the current step
+function updateFormProgress() {
+  const listItems = document.querySelectorAll('ol li');
+  listItems.forEach((li, index) => {
+    if (index === currentFieldset) {
+      li.classList.add('active');
+    } else {
+      li.classList.remove('active');
+    }
+  });
+}
+
 // Hide all fieldsets except the first one
 for (let i = 1; i < fieldsets.length; i++) {
   fieldsets[i].style.display = "none";
@@ -79,15 +91,3 @@ backButton.addEventListener("click", function() {
     nextButton.style.display = "block";
   }
 });
-
-// Update the form progress by adding an "active" class to the current step
-function updateFormProgress() {
-  const listItems = document.querySelectorAll('ol li');
-  listItems.forEach((li, index) => {
-    if (index === currentFieldset) {
-      li.classList.add('active');
-    } else {
-      li.classList.remove('active');
-    }
-  });
-}

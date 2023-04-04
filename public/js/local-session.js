@@ -16,13 +16,6 @@ emailInput.addEventListener("input", () => {
   localStorage.setItem("email", emailInput.value);
 });
 
-// Add event listener to next button to save values in local storage
-nextButton.addEventListener("click", () => {
-  localStorage.setItem("name", nameInput.value);
-  localStorage.setItem("studentNumber", studentNumberInput.value);
-  localStorage.setItem("email", emailInput.value);
-});
-
 // Check if values are stored in local storage
 const storedName = localStorage.getItem("name");
 const storedStudentNumber = localStorage.getItem("studentNumber");
@@ -36,7 +29,7 @@ if (storedName && storedStudentNumber && storedEmail) {
 }
 
 document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-  var value = localStorage.getItem(radio.name);
+  const value = localStorage.getItem(radio.name);
   if (value) {
     radio.checked = (radio.value === value);
   }
@@ -55,7 +48,7 @@ window.onload = function() {
 
   // Retrieve stored radio button values from local storage
   document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-    var value = localStorage.getItem(radio.name);
+    const value = localStorage.getItem(radio.name);
     if (value) {
       radio.checked = (radio.value === value);
     }
