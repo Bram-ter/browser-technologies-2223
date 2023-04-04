@@ -27,6 +27,9 @@ fieldsets.forEach((fieldset, index) => {
   ol.appendChild(li);
 });
 
+const firstLi = document.querySelector('ol li:first-child');
+firstLi.classList.add('active');
+
 // Hide all fieldsets except the first one
 for (let i = 1; i < fieldsets.length; i++) {
   fieldsets[i].style.display = "none";
@@ -73,6 +76,7 @@ backButton.addEventListener("click", function() {
   // hide the submit button if not on the last fieldset
   if (currentFieldset !== fieldsets.length - 1) {
     submitButton.style.display = "none";
+    nextButton.style.display = "block";
   }
 });
 
@@ -87,6 +91,3 @@ function updateFormProgress() {
     }
   });
 }
-
-const firstLi = document.querySelector('ol li:first-child');
-firstLi.classList.add('active');
