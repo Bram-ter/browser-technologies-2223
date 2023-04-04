@@ -53,9 +53,10 @@ nextButton.addEventListener("click", function() {
     updateFormProgress();
   }
   
-  // show the submit button if on the last fieldset
+  // show the submit button if on the last fieldset and hide the next button
   if (currentFieldset === fieldsets.length - 1) {
    submitButton.style.display = "block";
+   nextButton.style.display = "none";
   }
 });
 
