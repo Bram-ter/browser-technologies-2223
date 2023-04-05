@@ -10,7 +10,16 @@
     --border: #cccccc;
     --active-color: #f3f712;
     --alert-color: #a31010;
+    --orange: #f98d2d;
+    --mario-red: #e60113;
 }
+
+:focus-visible {
+    outline: #27a1ff 3px;
+    border: 3px dashed #27a1ff;
+    border-radius: 3px;
+}
+
 
 /* Global */
 
@@ -32,8 +41,11 @@ form {
     width: 100%;
 }
 
-#next,
-#back {
+button,
+input[type="submit"] {
+    color: #fff;
+    height: 3em;
+    margin: 0;
     padding: 1em;
     padding-left: 1em;
     padding-right: 1em;
@@ -56,6 +68,10 @@ article {
 
 h2 {
     font-size: 2em;
+}
+
+article h2 {
+    font-size: 1.3em;
 }
 
 label,
@@ -110,7 +126,7 @@ ol li {
     font-size: 2em;
     line-height: 2;
     text-align: center;
-    background-color: #f98d2d;
+    background-color: var(--orange);
     box-shadow: 
     inset -.15em -0em 0em 0em #975118,
     inset -0em -.15em 0em 0em #975118,
@@ -170,7 +186,6 @@ input, select, textarea{
 
 form button {
     border: none;
-    background-color: #f98d2d;
     box-shadow: 
     inset -.15em -0em 0em 0em #975118,
     inset -0em -.15em 0em 0em #975118,
@@ -179,8 +194,20 @@ form button {
     ;
 }
 
+form button {
+    background-color: var(--orange);
+}
+
 form button:hover {
-    background-color: #fea150;
+    background-color: #f56c2c;
+}
+
+input[type="submit"] {
+    background-color: var(--mario-red);
+}
+
+input[type="submit"]:hover {
+    background-color: #b60211;;
 }
 
 body section {
@@ -194,7 +221,7 @@ body section form fieldset {
     border: none;
     margin-top: .5em;
     margin-bottom: .5em;
-    background-color: #f98d2d;
+    background-color: var(--orange);
     box-shadow: 
     inset -.25em -0em 0em 0em #975118,
     inset -0em -.25em 0em 0em #975118,
@@ -205,7 +232,7 @@ body section form fieldset {
 
 body section form fieldset legend {
     margin-bottom: .5em;
-    background-color: #f98d2d;
+    background-color: var(--orange);
     box-shadow: 
     inset -.15em -0em 0em 0em #975118,
     inset -0em -.15em 0em 0em #975118,
@@ -217,12 +244,6 @@ body section form fieldset legend {
 body section form fieldset p {
     margin-top: .5em;
     margin-bottom: .5em;
-}
-
-body section form button {
-    padding: .5em;
-    padding-left: 1em;
-    padding-right: 1em;
 }
 
 body section form fieldset input {

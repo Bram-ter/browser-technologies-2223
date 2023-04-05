@@ -8,7 +8,9 @@ submitButton.style.display = "none";
 // Set the current fieldset to the first one
 let currentFieldset = 0;
 
-// Create "Back" and "Next" buttons with JavaScript and add them to the form
+// 
+//Create "Back" and "Next" buttons with JavaScript and add them to the form
+//
 const btns = `
     <button id="back" type="button">Back</button>
     <button id="next" type="button">Next</button>
@@ -17,7 +19,9 @@ form.insertAdjacentHTML('beforeend', btns);
 const backButton = document.getElementById("back");
 const nextButton = document.getElementById("next");
 
+//
 // Create the ol element to show the form progress
+//
 const ol = document.createElement('ol');
 form.insertBefore(ol, form.firstChild);
 
@@ -30,7 +34,10 @@ fieldsets.forEach((fieldset, index) => {
 const firstLi = document.querySelector('ol li:first-child');
 firstLi.classList.add('active');
 
+
+//
 // Update the form progress by adding an "active" class to the current step
+//
 function updateFormProgress() {
   const listItems = document.querySelectorAll('ol li');
   listItems.forEach((li, index) => {
@@ -42,12 +49,16 @@ function updateFormProgress() {
   });
 }
 
-// Hide all fieldsets except the first one
+//
+// Hide all fieldsets except the first one and make them not tabbable
+//
 for (let i = 1; i < fieldsets.length; i++) {
   fieldsets[i].style.display = "none";
 }
 
+//
 // Handle "next" button click
+//
 nextButton.addEventListener("click", function() {
   // check if the inputs in the current fieldset are valid before moving to the next fieldset
   const inputs = fieldsets[currentFieldset].querySelectorAll("input");
@@ -75,7 +86,9 @@ nextButton.addEventListener("click", function() {
   }
 });
 
+//
 // Handle "back" button click
+//
 backButton.addEventListener("click", function() {
   // if not on the first fieldset, go back to the previous fieldset
   if (currentFieldset > 0) {
