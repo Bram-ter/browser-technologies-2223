@@ -37,20 +37,3 @@ document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
     localStorage.setItem(this.name, this.value);
   });
 });
-
-window.onload = function() {
-  // Store selected radio button values in local storage
-  document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      localStorage.setItem(this.name, this.value);
-    });
-  });
-
-  // Retrieve stored radio button values from local storage
-  document.querySelectorAll('input[type="radio"]').forEach(function(radio) {
-    const value = localStorage.getItem(radio.name);
-    if (value) {
-      radio.checked = (radio.value === value);
-    }
-  });
-};

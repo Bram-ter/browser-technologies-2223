@@ -1,23 +1,66 @@
 @font-face {
-    font-family: Futura;
-    src: url(../fonts/FuturaHEMAProOT-Book.otf);
+    font-family: pixel-font;
+    src: url(../fonts/Pixel-Font.woff) format("woff"),
+        url(../fonts/Pixel-Font.woff2) format("woff2");
+    
 }
 
 :root {
     --color: #000;
     --border: #cccccc;
-    --alert-color: #cc0000;
+    --active-color: #f3f712;
+    --alert-color: #a31010;
 }
 
 /* Global */
 
 .active {
-    color: #fff;
-    background-color: var(--alert-color);
+    color: #000;
+    background-color: var(--active-color);
 }
 
-.wrapper {
-    display: flex;
+html, body {
+    font-family: pixel-font;
+}
+
+body {
+    height: 100dvh;
+}
+
+form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#next,
+#back {
+    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#back {
+    float: left;
+}
+
+#next,
+input[type="submit"] {
+    float: right;
+}
+
+legend,
+article {
+    padding: .5em;
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+label,
+p {
+    font-size: 1.5em;
 }
 
 label[for="vak"],
@@ -26,46 +69,118 @@ label[for="weeks"] {
     display: none;
 }
 
-html, body {
-    font-family: Futura;
+input[type="radio"] {
+    position: absolute;
+    appearance: none;
+    opacity: 0;
 }
 
-body {
-    height: 100dvh;
+.wrapper > label {
+    text-align: center;
+    line-height: 1;
+    margin: .2em;
+    width: 1em;
+    height: 1em;
+    background-color: #fba050;
+    box-shadow: 
+    inset -.15em -0em 0em 0em #975118,
+    inset -0em -.15em 0em 0em #975118,
+    inset .15em 0em 0em 0em #fab99b,
+    inset 0em .15em 0em 0em #fab99b
+    ;
 }
 
-legend {
-    padding: 1em;
+.wrapper > label:hover {
+    color: #000;
 }
 
 ol {
     padding-left: 0;
+    margin: 0;
     display: flex;
     list-style-position: inside;
     justify-content: space-around;
 }
 
 ol li {
+    position: relative;
+    overflow: hidden;
     width: 2em;
     height: 2em;
+    font-size: 2em;
     line-height: 2;
     text-align: center;
-    border: 1px solid var(--border);
+    background-color: #f98d2d;
+    box-shadow: 
+    inset -.15em -0em 0em 0em #975118,
+    inset -0em -.15em 0em 0em #975118,
+    inset .15em 0em 0em 0em #fab99b,
+    inset 0em .15em 0em 0em #fab99b
+    ;
+}
+
+ol li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 3em;
+    height: 4em;
+    background: 
+        linear-gradient(
+            #000000 95%,
+            transparent 5%
+        ),
+        linear-gradient(
+            #000000 95%,
+            transparent 5%
+        ),
+        linear-gradient(
+            #000000 95%,
+            transparent 5%
+        ),
+        linear-gradient(
+            #000000 95%,
+            transparent 5%
+        )
+    ;
+    background-repeat: no-repeat;
+    background-size: .21em .21em;
+    background-position: .15em .15em, 1.65em .15em, .15em 1.65em, 1.65em 1.65em;
 }
 
 input {
-    border-radius: 4px;
-    border: 1px solid var(--border);
+    border: none;
     height: 2.5em;
+    margin-top: .5em;
+    box-shadow: 
+    -.15em -0em 0em 0em #975118,
+    -0em -.15em 0em 0em #975118,
+    .15em 0em 0em 0em #fab99b,
+    0em .15em 0em 0em #fab99b
+    ;
+}
+
+input[type="radio"]:checked + span {
+    color: #000;
 }
 
 input, select, textarea{
     color: var(--color);
 }
 
-form {
-    margin: 0 auto;
-    width: 60%;
+form button {
+    border: none;
+    background-color: #f98d2d;
+    box-shadow: 
+    inset -.15em -0em 0em 0em #975118,
+    inset -0em -.15em 0em 0em #975118,
+    inset .15em 0em 0em 0em #fab99b,
+    inset 0em .15em 0em 0em #fab99b
+    ;
+}
+
+form button:hover {
+    background-color: #fea150;
 }
 
 body section {
@@ -76,13 +191,32 @@ body section {
 }
 
 body section form fieldset {
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    border: none;
+    margin-top: .5em;
     margin-bottom: .5em;
+    background-color: #f98d2d;
+    box-shadow: 
+    inset -.25em -0em 0em 0em #975118,
+    inset -0em -.25em 0em 0em #975118,
+    inset .25em 0em 0em 0em #fab99b,
+    inset 0em .25em 0em 0em #fab99b
+    ;
+}
+
+body section form fieldset legend {
+    margin-bottom: .5em;
+    background-color: #f98d2d;
+    box-shadow: 
+    inset -.15em -0em 0em 0em #975118,
+    inset -0em -.15em 0em 0em #975118,
+    inset .15em 0em 0em 0em #fab99b,
+    inset 0em .15em 0em 0em #fab99b
+    ;
 }
 
 body section form fieldset p {
-    margin-top: 0;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
 
 body section form button {
@@ -91,33 +225,41 @@ body section form button {
     padding-right: 1em;
 }
 
-body section form fieldset label {
-    font-size: 1em;
-}
-
 body section form fieldset input {
-    margin-right: 1em;
     background-color: #fff;
 }
 
-body section form fieldset input + span {
+body section form fieldset:first-of-type label[for="name"] input + span,
+body section form fieldset:first-of-type label[for="studentnumber"] input + span,
+body section form fieldset:first-of-type label[for="email"] input + span {
     display: none;
     margin-bottom: 1em;
     font-size: 1em;
 }
 
-body section form fieldset input:invalid + span {
+body section form fieldset:first-of-type label input:invalid + span {
     display: inline-block;
     color: var(--alert-color);
 }
 
-body section form fieldset input:placeholder-shown:invalid + span {
+body section form fieldset:first-of-type label[for="name"] input:placeholder-shown:invalid + span,
+body section form fieldset:first-of-type label[for="studentnumber"] input:placeholder-shown:invalid + span,
+body section form fieldset:first-of-type label[for="email"] input:placeholder-shown:invalid + span {
     display: none;
 }
 
 body section form fieldset input {
     margin-right: 1em;
 }
+
+/* body section form fieldset label input:after {
+    content: "✔";
+    top: 0;
+    left: 0;
+    color: green;
+    position: absolute;
+    font-size: 1em;
+} */
 
 body section form fieldset:first-of-type input {
     margin-bottom: 1em;
@@ -126,15 +268,6 @@ body section form fieldset:first-of-type input {
 body section form fieldset:not(:first-of-type) input:nth-of-type(1),
 body section form fieldset:not(:first-of-type) input:nth-of-type(2) {
     margin-bottom: 1em;
-}
-
-#back {
-    float: left;
-}
-
-#next,
-input[type="submit"] {
-    float: right;
 }
 
 @supports not (height: 100dvh) {
@@ -149,9 +282,113 @@ input[type="submit"] {
         flex-direction: column;
         flex-wrap: wrap;
     }
-    fieldset label {
+    fieldset:first-of-type label {
         display: flex;
         flex-direction: column;
+    }
+    .wrapper {
+        display: flex;
+    }
+}
+@media (min-width: 600px) { 
+    .wrapper > label {
+        width: 1.5em;
+        line-height: 1.4;
+        height: 1.5em;
+        margin: 0.2em;
+    }
+}
+
+@media (min-width: 700px) {
+    form {
+        margin: 0 auto;
+        width: 80%;
+    }
+    ol {
+        margin: 1em 0em 1em 0em;
+    }
+    body section form fieldset label[for="name"],
+    body section form fieldset label[for="studentnumber"],
+    body section form fieldset label[for="email"] { 
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .wrapper > label {
+        position: relative;
+        line-height: 2;
+        margin: .1em;
+        width: 2em;
+        height: 2em;
+    }
+
+    input[type="radio"]:checked + span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        animation-duration: .3s;
+        animation-name: moveUp;
+        animation-iteration-count: 1;
+    }
+
+    input[type="radio"]:checked + span:after {
+        content: '';
+        position: absolute;
+        opacity: 0;
+        width: 1em;
+        height: 1.2em;
+        top: -1.5em;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: url(/assets/coin.png) no-repeat;
+        background-size: 100% 100%;
+        animation-duration: .3s;
+        animation-name: coinSpin;
+        animation-iteration-count: 1;
+    }
+
+    fieldset:first-of-type label:last-child {
+        padding-bottom: 1em;
+    }
+}
+
+@media (min-width: 1000px) {
+    form {
+        width: 70%;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -1em;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes coinSpin {
+    0% {
+        opacity: 0;
+        top: -1.5em;
+    }
+    20% {
+        opacity: 1;
+        top: -1.7em;
+    }
+    50% {
+        opacity: 1;
+        top: -2.5em;
+    }
+    100% {
+        opacity: 0;
+        top: -1.5em;
     }
 }
 

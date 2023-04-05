@@ -4,8 +4,8 @@
         <fieldset>
             <legend>Studentgegevens</legend>
             <label for="name">
-                Volledige naam:
-                <input type="text" id="name" name="name" placeholder=" naam" pattern="[a-zA-Z]+" required>
+                Naam:
+                <input type="text" id="name" name="name" placeholder=" naam" pattern="[a-zA-Z ]+" required>
                 <span>De naam mag geen speciale tekens bevatten</span>
             </label>
 
@@ -17,7 +17,8 @@
 
             <label for="email">
                 Email:
-                <input type="email" id="email" name="email" placeholder=" student@hva.nl" required>
+                <input type="email" id="email" name="email" pattern=".*@.*" placeholder="student@hva.nl" required>
+                <span>Het email adres moet een @ bevatten</span>
             </label>
         </fieldset>
 
@@ -29,13 +30,13 @@
                 <input type="text" id="course_<%= course.courseName %>" name="vak" value="<%= course.courseName %>" hidden>
             </label>
 
-            <p>Docent(en): <%= course.teacherName  %></p>
+            <h2>Docent(en): <%= course.teacherName  %></h2>
             <label for="teachers" hidden>
                 Docent(en):
                 <input type="text" id="teachers_<%= course.teacherName %>" name="teachers" value="<%= course.teacherName %>" hidden>
             </label>
 
-            <p>Weken: <%= course.courseWeeks %></p>
+            <h2>Weken: <%= course.courseWeeks %></h2>
             <label for="weeks" hidden>
                 Weken:
                 <input type="text" id="weeks_<%= course.courseWeeks %>" name="weeks" value="<%= course.courseWeeks %>" hidden><br>
@@ -44,159 +45,159 @@
             <p>Hoe moeilijk is de lesstof?</p>
             <div class="wrapper">
                 <label>
-                    1
                     <input type="radio" id="teaching_material_<%= index %>_1" name="teaching_material_<%= index %>" value="1" required>
+                    <span>1</span>
                 </label>
 
                 <label>
-                    2
                     <input type="radio" id="teaching_material_<%= index %>_2" name="teaching_material_<%= index %>" value="2" required>
+                    <span>2</span>
                 </label>
 
                 <label>
-                    3
                     <input type="radio" id="teaching_material_<%= index %>_3" name="teaching_material_<%= index %>" value="3" required>
+                    <span>3</span>
                 </label>
 
                 <label>
-                    4
                     <input type="radio" id="teaching_material_<%= index %>_4" name="teaching_material_<%= index %>" value="4" required>
+                    <span>4</span>
                 </label>
 
-                <label>
-                    5
+                <label>  
                     <input type="radio" id="teaching_material_<%= index %>_5" name="teaching_material_<%= index %>" value="5" required>
+                    <span>5</span>
                 </label>
 
                 <label>
-                    6
                     <input type="radio" id="teaching_material_<%= index %>_6" name="teaching_material_<%= index %>" value="6" required>
+                    <span>6</span>
                 </label>
 
                 <label>
-                    7
                     <input type="radio" id="teaching_material_<%= index %>_7" name="teaching_material_<%= index %>" value="7" required>
+                    <span>7</span>
                 </label>
 
                 <label>
-                    8
                     <input type="radio" id="teaching_material_<%= index %>_8" name="teaching_material_<%= index %>" value="8" required>
+                    <span>8</span>
                 </label>
 
                 <label>
-                    9
                     <input type="radio" id="teaching_material_<%= index %>_9" name="teaching_material_<%= index %>" value="9" required>
+                    <span>9</span>
                 </label>
 
                 <label>
-                    10
                     <input type="radio" id="teaching_material_<%= index %>_10" name="teaching_material_<%= index %>" value="10" required>
+                    <span>10</span>
                 </label>
             </div>
 
             <p>Hoe duidelijk is het uitgelegd?</p>
             <div class="wrapper">
                 <label>
-                    1
                     <input type="radio" id="explanation_<%= index %>_1" name="explanation_<%= index %>" value="1" required>
+                    <span>1</span>
                 </label>
 
                 <label>
-                    2
                     <input type="radio" id="explanation_<%= index %>_2" name="explanation_<%= index %>" value="2" required>
+                    <span>2</span>
                 </label>
 
                 <label>
-                    3
                     <input type="radio" id="explanation_<%= index %>_3" name="explanation_<%= index %>" value="3" required>
+                    <span>3</span>
                 </label>
 
                 <label>
-                    4
                     <input type="radio" id="explanation_<%= index %>_4" name="explanation_<%= index %>" value="4" required>
+                    <span>4</span>
                 </label>
 
                 <label>
-                    5
                     <input type="radio" id="explanation_<%= index %>_5" name="explanation_<%= index %>" value="5" required>
+                    <span>5</span>
                 </label>
 
                 <label>
-                    6
                     <input type="radio" id="explanation_<%= index %>_6" name="explanation_<%= index %>" value="6" required>
+                    <span>6</span>
                 </label>
 
                 <label>
-                    7
                     <input type="radio" id="explanation_<%= index %>_7" name="explanation_<%= index %>" value="7" required>
+                    <span>7</span>
                 </label>
 
                 <label>
-                    8
                     <input type="radio" id="explanation_<%= index %>_8" name="explanation_<%= index %>" value="8" required>
+                    <span>8</span>
                 </label>
 
                 <label>
-                    9
                     <input type="radio" id="explanation_<%= index %>_9" name="explanation_<%= index %>" value="9" required>
+                    <span>9</span>
                 </label>
 
                 <label>
-                    10
                     <input type="radio" id="explanation_<%= index %>_10" name="explanation_<%= index %>" value="10" required>
+                    <span>10</span>
                 </label>
             </div>
 
             <p>Hoe goed snap je het?</p>
             <div class="wrapper">
                 <label>
-                    1
                     <input type="radio" id="understanding_<%= index %>_1" name="understanding_<%= index %>" value="1" required>
+                    <span>1</span>
                 </label>
 
                 <label>
-                    2
                     <input type="radio" id="understanding_<%= index %>_2" name="understanding_<%= index %>" value="2" required>
+                    <span>2</span>
                 </label>
 
                 <label>
-                    3
                     <input type="radio" id="understanding_<%= index %>_3" name="understanding_<%= index %>" value="3" required>
+                    <span>3</span>
                 </label>
 
                 <label>
-                    4
                     <input type="radio" id="understanding_<%= index %>_4" name="understanding_<%= index %>" value="4" required>
+                    <span>4</span>
                 </label>
 
                 <label>
-                    5
                     <input type="radio" id="understanding_<%= index %>_5" name="understanding_<%= index %>" value="5" required>
+                    <span>5</span>
                 </label>
 
                 <label>
-                    6
                     <input type="radio" id="understanding_<%= index %>_6" name="understanding_<%= index %>" value="6" required>
+                    <span>6</span>
                 </label>
 
                 <label>
-                    7
                     <input type="radio" id="understanding_<%= index %>_7" name="understanding_<%= index %>" value="7" required>
+                    <span>7</span>
                 </label>
 
                 <label>
-                    8
                     <input type="radio" id="understanding_<%= index %>_8" name="understanding_<%= index %>" value="8" required>
+                    <span>8</span>
                 </label>
 
                 <label>
-                    9
                     <input type="radio" id="understanding_<%= index %>_9" name="understanding_<%= index %>" value="9" required>
+                    <span>9</span>
                 </label>
 
                 <label>
-                    10
                     <input type="radio" id="understanding_<%= index %>_10" name="understanding_<%= index %>" value="10" required>
+                    <span>10</span>
                 </label>
             </div>
         </fieldset>
