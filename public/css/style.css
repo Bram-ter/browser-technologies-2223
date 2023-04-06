@@ -291,26 +291,6 @@ body section form fieldset:not(:first-of-type) input:nth-of-type(2) {
     margin-bottom: 1em;
 }
 
-@supports not (height: 100dvh) {
-    body {
-        height: 100vh;
-    }
-}
-
-@supports (display: flex) {
-    fieldset {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-    fieldset:first-of-type label {
-        display: flex;
-        flex-direction: column;
-    }
-    .wrapper {
-        display: flex;
-    }
-}
 @media (min-width: 600px) { 
     .wrapper > label {
         width: 1.5em;
@@ -410,6 +390,38 @@ body section form fieldset:not(:first-of-type) input:nth-of-type(2) {
     100% {
         opacity: 0;
         top: -1.5em;
+    }
+}
+
+@supports not (height: 100dvh) {
+    body {
+        height: 100vh;
+    }
+}
+
+@supports selector(:has(*)) {
+    label:has(input[type="radio"]:checked + span) {
+        animation-duration: .3s;
+        animation-name: coinSpin;
+        animation-iteration-count: 1;
+    }
+    input[type="radio"]:checked + span {
+        animation-name: none;
+    }
+}
+
+@supports (display: flex) {
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    fieldset:first-of-type label {
+        display: flex;
+        flex-direction: column;
+    }
+    .wrapper {
+        display: flex;
     }
 }
 
